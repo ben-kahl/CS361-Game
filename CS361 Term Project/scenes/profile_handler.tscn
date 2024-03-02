@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bktwo3nxgprsd"]
+
+[ext_resource type="Script" path="res://scripts/profile_handler.gd" id="1_ye7ok"]
+[ext_resource type="JSON" path="res://data/profile_data.json" id="2_puqxa"]
+
+[node name="ProfileHandler" type="HTTPRequest"]
+script = ExtResource("1_ye7ok")
+retrieved_player_data = ExtResource("2_puqxa")
+
+[connection signal="request_completed" from="." to="." method="_on_request_completed"]
