@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmgqgxf4r26di"]
+[gd_scene load_steps=2 format=3 uid="uid://dmgqgxf4r26di"]
 
 [ext_resource type="Script" path="res://scripts/profile_menu.gd" id="1_isik3"]
-[ext_resource type="PackedScene" uid="uid://bktwo3nxgprsd" path="res://scenes/profile_handler.tscn" id="2_q0l4d"]
 
 [node name="profile_menu" type="CanvasLayer" node_paths=PackedStringArray("view_profile_button", "edit_profile_button", "back_to_network_button", "back_to_profile_button", "back_to_profile_edit_button", "save_profile_button")]
 script = ExtResource("1_isik3")
@@ -186,5 +185,3 @@ offset_right = 0.145996
 offset_bottom = 0.439972
 theme_override_font_sizes/font_size = 40
 text = "Save Info"
-
-[node name="ProfileHandler" parent="." instance=ExtResource("2_q0l4d")]

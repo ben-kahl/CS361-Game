@@ -24,6 +24,7 @@ func _ready():
 	pass # Replace with function body.
 
 func view_profile():
+	profile_info = FileAccess.get_file_as_string(path)
 	var json = JSON.new()
 	var profile_json = json.parse_string(profile_info)
 	$ColorRect/Select.hide()
@@ -54,8 +55,3 @@ func save_profile():
 	var profile_as_string = json.stringify(profile_json)
 	var file = FileAccess.open(path, FileAccess.WRITE)
 	file.store_string(profile_as_string)
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://d25ox44wljso3"]
+[gd_scene load_steps=3 format=3 uid="uid://d25ox44wljso3"]
 
 [ext_resource type="Script" path="res://scripts/network_menu.gd" id="1_8ob5k"]
+[ext_resource type="PackedScene" uid="uid://bktwo3nxgprsd" path="res://scenes/profile_handler.tscn" id="2_vyuyy"]
 
-[node name="network_menu" type="CanvasLayer" node_paths=PackedStringArray("find_lobby_button", "create_lobby_button", "profile_button", "main_menu_button")]
+[node name="network_menu" type="CanvasLayer" node_paths=PackedStringArray("find_lobby_button", "create_lobby_button", "profile_button", "main_menu_button", "sign_up_button", "login_button")]
 script = ExtResource("1_8ob5k")
 find_lobby_button = NodePath("ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/FindLobby")
 create_lobby_button = NodePath("ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CreateLobby")
 profile_button = NodePath("ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Profile")
 main_menu_button = NodePath("ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackToMainMenu")
+sign_up_button = NodePath("ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SignUp")
+login_button = NodePath("ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Login")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -66,7 +69,21 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Profile"
 
+[node name="SignUp" type="Button" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Sign Up"
+
+[node name="Login" type="Button" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Login"
+
 [node name="BackToMainMenu" type="Button" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Back to Main Menu"
+
+[node name="ProfileHandler" parent="." instance=ExtResource("2_vyuyy")]
+
+[connection signal="request_completed" from="ProfileHandler" to="." method="_on_profile_handler_request_completed"]

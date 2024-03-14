@@ -4,6 +4,7 @@
 [ext_resource type="JSON" path="res://data/profile_data.json" id="2_puqxa"]
 
 [node name="ProfileHandler" type="HTTPRequest"]
+timeout = 5.0
 script = ExtResource("1_ye7ok")
 retrieved_player_data = ExtResource("2_puqxa")
 
